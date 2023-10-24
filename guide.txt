@@ -1,0 +1,14 @@
+ng new movieapp
+
+rootıng no style CSS
+
+npm i bootstrap
+
+style css e @import "~bootstrap/dist/css/bootstrap.css";
+
+componetlerı olustur
+
+ng generate component components/movies/movie
+....
+
+
