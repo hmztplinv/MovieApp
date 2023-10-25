@@ -5,9 +5,9 @@ export class MovieRepository{
 
     constructor(){
         this.movies = [
-            {id:1,title:"film1",description:"description1",imageUrl:"1.jpg",isPopular:true},
-            {id:2,title:"film2",description:"description2",imageUrl:"2.jpg",isPopular:true},
-            {id:3,title:"film3",description:"description3",imageUrl:"3.jpg",isPopular:false}
+            {id:1,title:"film1",description:"description1",imageUrl:"1.jpg",isPopular:true,datePublished:new Date("2020-10-10")},
+            {id:2,title:"film2",description:"description2",imageUrl:"2.jpg",isPopular:true,datePublished:new Date("2020-10-10")},
+            {id:3,title:"film3",description:"description3",imageUrl:"3.jpg",isPopular:false,datePublished:new Date("2020-10-10")}
           ];
     }
 
