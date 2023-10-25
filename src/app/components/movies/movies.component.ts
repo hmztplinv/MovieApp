@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 import { MovieRepository } from 'src/app/models/movie.repository';
@@ -13,16 +14,13 @@ import { AlertifyService } from 'src/app/services/alertify.service';
 export class MoviesComponent implements OnInit {
 
   title = "Movie List";
-  movies: Movie[];
-  popularMovies: Movie[];
-  movieRepository: MovieRepository;
+  movies: Movie[]= [];
+  popularMovies: Movie[]= [];
 
   filterText: string = "";
 
-  constructor(private alertify: AlertifyService) {
-    this.movieRepository = new MovieRepository();
-    this.movies = this.movieRepository.getMovies();
-    this.popularMovies = this.movieRepository.getPopularMovies();
+  constructor(private alertify: AlertifyService,private httpClient:HttpClient) {
+    
   }
 
   btClick() {
@@ -30,6 +28,10 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.httpClient.get<Movie[]>("http://localhost:3000/movies").subscribe(data=>{
+      this.movies=data;
+      this.popularMovies=data;
+    })
   }
 }
 
