@@ -21,7 +21,7 @@
         <div class="col-md-9">
           <div class="card-body">
             <h5 class="card-title">{{movie.title | titlecase}}</h5>
-            <p class="card-text">{{movie.description}}</p>
+            <p class="card-text">{{movie.description | summary }}</p>
             <p class="card-text"><small class="text-body-secondary">{{movie.datePublished | date :'dd/MM/y'}}</small></p>
             <button class="btn btn-sm btn-primary">Details</button>
           </div>
@@ -30,34 +30,8 @@
     </div>
   </ng-template>
 
-  <h4>lower-upper-title pipe</h4>
-  <p>{{'hello world' | lowercase}}</p>
-  <p>{{'hello world' | uppercase}}</p>
-  <p>{{'hello world' | titlecase}}</p>
-
-  <h4>currency pipe</h4>
-  <p>{{1234.567 | currency}}</p>
-  <p>{{1234.567 | currency:'EUR'}}</p>
-  <p>{{1234.567 | currency:'EUR':'code'}}</p>
-  <p>{{1234.567 | currency:'EUR':'symbol'}}</p>
-  <p>{{1234.567 | currency:'EUR':'symbol-narrow'}}</p>
-
-  <h4>date pipe</h4>
-  <p>{{today | date}}</p>
-  <p>{{today | date:'dd/MM/y'}}</p>
-  <p>{{today | date:'dd/MM/y hh:mm:ss'}}</p>
-  <p>{{today | date:'dd/MM/y hh:mm:ss a'}}</p>
-  <p>{{today | date:'dd/MM/y hh:mm:ss a Z'}}</p>
-  <p>{{today | date:'dd/MM/y hh:mm:ss a Z':'GMT'}}</p>
-  <p>{{today | date:'dd/MM/y hh:mm:ss a Z':'GMT+2'}}</p>
-  <p>{{today | date: 'fullDate' }}</p>
-  <!-- Wednesday, October 25, 2023 olarak göründü localize etmemız lazım, angular.json ıcınde i18n eklenır ve ng add @angular/localize eklenır-->
-  <p>{{today | date: 'shortDate' }}</p>
-
-  <h4>decimal pipe</h4>
-  <p>{{1234.567 | number}}</p>
-  <p>{{1234.567 | number:'1.2-3'}}</p>
   
+
 
 
 
