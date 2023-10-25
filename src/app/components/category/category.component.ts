@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent {
+  categories = ["Mystery","Drama","Comedy","Action","Adventure","Horror"];
 
 }
