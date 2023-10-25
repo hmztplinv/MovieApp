@@ -4,9 +4,8 @@
 <div class="alert alert-success" *ngIf="movies.length>0">
     {{movies.length}} movies found
 </div>
+<ng-template [ngTemplateOutlet]="movieList2" [ngTemplateOutletContext]="{ movies:popularMovies }"></ng-template>
 <ng-template [ngTemplateOutlet]="movieList1"></ng-template>
-<ng-template [ngTemplateOutlet]="movieList2"></ng-template>
-<ng-template [ngTemplateOutlet]="movieList3" [ngTemplateOutletContext]="{ movies:movieRepository.getMovies() }"></ng-template>
 </div>
 <!-- <div class="alert alert-danger" *ngIf="movies.length==0">
   No movies found
@@ -16,6 +15,7 @@
 </ng-template>
 
 <ng-template #movieList1>
+  <h2>Movies</h2>
   <div class="card mb-3" *ngFor="let movie of movies">
       <div class="row g-0">
         <div class="col-md-3">
@@ -33,28 +33,33 @@
     </div>
   </ng-template>
 
-  <ng-template #movieList2>
-    <div class="card mb-2" *ngFor="let movie of movies">
-        <div class="row g-0">
-          <div class="col-md-3">
-            <img src="/assets/img/{{movie.imageUrl}}" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-10">
-            <div class="card-body">
-              <h5 class="card-title">{{movie.title}}</h5>
-              <p class="card-text">{{movie.description}}</p>
-              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              <button class="btn btn-sm btn-primary">Details</button>
-            </div>
-          </div>
-        </div>
+  <ng-template #movieList2 let-listMovies="movies">
+    <h2>Popular Movies</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+      <div class ="col" *ngFor="let movie of listMovies">
+      <div class="card h-100">
+        <img src="/assets/img/{{movie.imageUrl}}" class="card-img-top" alt="...">
       </div>
+      <div class="card-body">
+        <h5 class="card-title">{{movie.title}}</h5>
+        <p class="card-text">{{movie.description}}</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <button class="btn btn-sm btn-primary">Details</button>
+      </div>
+    </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     </ng-template>
     <!--
 dısarıdan dınamık verı alan template
     -->
 
-    <ng-template #movieList3 let-popularMovies="movies">
+    <!-- <ng-template #movieList3 let-popularMovies="movies">
       <h2>Popular Movies</h2>
       <div class="card mb-2" *ngFor="let movie of popularMovies">
           <div class="row g-0">
@@ -71,4 +76,4 @@ dısarıdan dınamık verı alan template
             </div>
           </div>
         </div>
-      </ng-template>
+      </ng-template> -->
