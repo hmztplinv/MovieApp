@@ -32,7 +32,7 @@
             <h5 class="card-title">{{movie.title | titlecase}}</h5>
             <p class="card-text">{{movie.description | summary }}</p>
             <!-- <p class="card-text"><small class="text-body-secondary">{{movie.datePublished | date :'dd/MM/y'}}</small></p> -->
-            <button class="btn btn-sm btn-primary">Details</button>
+            <a [routerLink]="['/movies', movie.id]"  class="btn btn-sm btn-primary">Details</a>
           </div>
         </div>
       </div>

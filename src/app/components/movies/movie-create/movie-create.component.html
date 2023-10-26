@@ -1,0 +1,31 @@
+<h3>Create Movie</h3>
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title" class="form-control">
+    <div *ngIf="movieForm.get('title').invalid && movieForm.get('title').touched">
+      Başlık alanı gereklidir.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" class="form-control"></textarea>
+    <div *ngIf="movieForm.get('description').invalid && movieForm.get('description').touched">
+      Açıklama alanı gereklidir.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="imageUrl">Image</label>
+    <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control">
+    <div *ngIf="movieForm.get('imageUrl').invalid && movieForm.get('imageUrl').touched">
+      Image URL alanı gereklidir.
+    </div>
+  </div>
+
+  <!-- Diğer form alanları -->
+
+  <button type="submit" class="btn btn-primary">Film Oluştur</button>  <!-- <a> yerine <button> kullanıldı -->
+</form>
+

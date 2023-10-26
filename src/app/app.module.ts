@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { FilterMoviePipe } from './pipes/filter-movie.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MovieCreateComponent } from './components/movies/movie-create/movie-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +27,15 @@ import { AppRoutingModule } from './app-routing.module';
     MovieDetailsComponent,
     FooterComponent,
     SummaryPipe,
-    FilterMoviePipe
+    FilterMoviePipe,
+    MovieCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,13 @@ export class MovieService {
 
     constructor(private httpClient:HttpClient) { }
 
+    createMovie(movie:Movie): Observable<Movie> {
+        return this.httpClient.post<Movie>(this.url, movie).pipe(
+            tap(data => console.log(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
+
     getMovies(categoryId:number): Observable<Movie[]> {
         let newUrl = this.url;
         if (categoryId) {
@@ -16,6 +23,13 @@ export class MovieService {
         }
 
         return this.httpClient.get<Movie[]>(newUrl).pipe(
+            tap(data => console.log(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
+
+    getMovieById(movieId:number): Observable<Movie> {
+        return this.httpClient.get<Movie>(this.url + "/" + movieId).pipe(
             tap(data => console.log(JSON.stringify(data))),
             catchError(this.handleError)
         );
