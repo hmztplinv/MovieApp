@@ -31,8 +31,14 @@ export class MoviesComponent implements OnInit {
         this.movies=data;
         this.popularMovies=data;
       });
-    },error => this.error = error);
-    
+    },error => this.error = error);  
+  }
+
+  deleteMovie(movieId:number){
+    this.movieService.deleteMovie(movieId).subscribe(data=>{
+      this.alertify.error("Movie deleted.");
+      this.ngOnInit();
+    });
   }
 }
 

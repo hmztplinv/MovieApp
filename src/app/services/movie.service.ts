@@ -16,6 +16,20 @@ export class MovieService {
         );
     }
 
+    deleteMovie(movieId:number): Observable<Movie> {
+        return this.httpClient.delete<Movie>(this.url + "/" + movieId).pipe(
+            tap(data => console.log(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
+
+    updateMovie(movie:Movie): Observable<Movie> {
+        return this.httpClient.put<Movie>(this.url + "/" + movie.id, movie).pipe(
+            tap(data => console.log(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
+
     getMovies(categoryId:number): Observable<Movie[]> {
         let newUrl = this.url;
         if (categoryId) {

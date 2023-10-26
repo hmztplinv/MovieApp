@@ -1,22 +1,42 @@
 <div *ngIf="movie else no_movie">
     <div class="card">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="/assets/img/{{movie.imageUrl}}" class="img-fluid rounded-start" alt="...">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="/assets/img/{{movie.imageUrl}}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">
-            <div class="card-body">
-                <h2>{{movie.title | titlecase}}</h2>
-                <P class="card-text">{{movie.description}}</P>
-            </div>
+          <div class="card-body">
+            <h2>{{movie.title | titlecase}}</h2>
+            <p class="card-text">{{movie.description}}</p>
+          </div>
         </div>
-
+      </div>
     </div>
-</div>
-</div>
-
-<ng-template class="alert alert-danger" #no_movie>
+    <!-- Update form -->
+    <div class="update-form">
+      <h3>Update Movie</h3>
+      <form [formGroup]="movieUpdateForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" formControlName="title" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" id="description" formControlName="description" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control">
+        </div>
+        <!-- ...Diğer form alanları -->
+        <button type="button" (click)="updateMovie()" class="btn btn-primary">Update Movie</button>
+      </form>
+    </div>
+  </div>
+  
+  <ng-template class="alert alert-danger" #no_movie>
     <div class="alert alert-danger">
-    No movies found
+      No movies found
     </div>
   </ng-template>
+  
