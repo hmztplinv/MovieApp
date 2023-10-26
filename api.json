@@ -1,8 +1,8 @@
 {
     "movies":[
-        {"id":1,"title":"film1","description":"Lorem1","imageUrl":"1.jpg","isPopular":0},
-        {"id":2,"title":"film2","description":"Lorem2","imageUrl":"2.jpg","isPopular":1},
-        {"id":3,"title":"film3","description":"Lorem3","imageUrl":"3.jpg","isPopular":0}
+        {"id":1,"title":"film1","description":"Lorem1","imageUrl":"1.jpg","isPopular":0, "categoryId":1},
+        {"id":2,"title":"film2","description":"Lorem2","imageUrl":"2.jpg","isPopular":1, "categoryId":1},
+        {"id":3,"title":"film3","description":"Lorem3","imageUrl":"3.jpg","isPopular":0, "categoryId":2}
     ],
     "categories":[
         {"id":1,"name":"Advanture"},
